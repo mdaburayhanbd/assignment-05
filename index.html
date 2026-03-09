@@ -41,6 +41,45 @@
 
     </div>
 </header>
-    
+     <main class="container mx-auto px-4 py-8">
+        
+        <div class="flex justify-center mb-8">
+            <div class="tabs tabs-boxed bg-white border border-gray-200 p-1">
+                <a id="all-tab" class="tab tab-lg tab-active-custom" onclick="filterIssues('all')">All</a>
+                <a id="open-tab" class="tab tab-lg" onclick="filterIssues('open')">Open</a>
+                <a id="closed-tab" class="tab tab-lg" onclick="filterIssues('closed')">Closed</a>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-xl p-6 border border-gray-200 flex flex-wrap items-center justify-between mb-8">
+            <div class="flex items-center gap-4">
+                <div class="bg-purple-100 p-3 rounded-lg text-purple-600">
+                   <img src="assets/aperture.png">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800"><span id="issue-count">0</span> Issues</h3>
+                    <p class="text-gray-500 text-sm">Track and manage your project issues</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-6 mt-4 md:mt-0">
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                    <span class="text-gray-600 font-medium">Open</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-purple-500"></span>
+                    <span class="text-gray-600 font-medium">Closed</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading" class="flex justify-center my-20">
+            <span class="loading loading-spinner loading-lg text-[#4A00FF]"></span>
+        </div>
+
+        <div id="issues-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            </div>
+
+    </main>
 </body>
 </html>
