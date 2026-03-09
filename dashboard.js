@@ -125,3 +125,68 @@ document.getElementById('search-input').addEventListener('input', async (e) => {
         displayIssues(allIssuesData);
     }
 });
+
+function openIssueModal(issue) {
+    if (!modal) return;
+    
+    const status = (issue.status || 'open').toLowerCase();
+    const statusBg = status === 'open' ? 'bg-[#00B86B]' : 'bg-[#8B5CF6]';
+    const priority = (issue.priority || 'LOW').toUpperCase();
+
+    modalBox.style.width = '700px';
+    modalBox.style.height = '414px';
+    modalBox.style.maxWidth = 'none';
+    modalBox.className = `modal-box p-8 bg-white rounded-2xl shadow-2xl relative overflow-hidden flex flex-col border-none`;
+
+    modalContent.innerHTML = `
+        <h2 class="text-[24px] font-bold text-[#1F2937] leading-tight mb-2">${issue.title}</h2>
+
+        <div class="flex items-center gap-2 text-[14px] text-[#64748B] mb-4">
+            <span class="px-3 py-0.5 rounded-full text-white font-medium text-[12px] ${statusBg}">
+                ${status.charAt(0).toUpperCase() + status.slice(1)}
+            </span>
+            <span class="flex items-center gap-1.5">
+                <span class="w-1 h-1 bg-[#CBD5E1] rounded-full"></span>
+                Opened by <span class="font-medium text-[#1F2937]">${issue.author}</span>
+                <span class="w-1 h-1 bg-[#CBD5E1] rounded-full"></span>
+                ${new Date(issue.createdAt).toLocaleDateString('en-GB')}
+            </span>
+        </div>
+
+        <div class="flex items-center gap-2 mb-6">
+            <div class="flex items-center gap-1.5 px-3 py-1 bg-[#FEECEC] border border-[#FECACA] rounded-full text-[#EF4444] font-bold text-[11px]">
+                <div class="w-2 h-2 rounded-full"></div>
+                BUG
+            </div>
+            <div class="flex items-center gap-1.5 px-3 py-1 bg-[#FFF8DB] border border-[#FDE68A] rounded-full text-[#D97706] font-bold text-[11px]">
+                <div class="w-2 h-2 rounded-full"></div>
+                HELP WANTED
+            </div>
+        </div>
+
+        <div class="mb-6 text-[15px] text-[#64748B] leading-[1.5] font-normal line-clamp-3">
+            <p>${issue.description}</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 p-5 bg-[#F8FAFC] rounded-xl border border-[#F1F5F9] mb-6">
+            <div>
+                <h4 class="text-[13px] text-[#64748B] font-medium mb-1">Assignee:</h4>
+                <p class="text-[16px] font-bold text-[#1F2937]">${issue.author}</p>
+            </div>
+            <div>
+                <h4 class="text-[13px] text-[#64748B] font-medium mb-1">Priority:</h4>
+                <span class="inline-block px-3 py-1 bg-[#EF4444] text-white rounded-full text-[11px] font-bold uppercase">${priority}</span>
+            </div>
+        </div>
+
+        <div class="flex justify-end mt-auto">
+            <form method="dialog">
+                <button class="px-8 py-2.5 bg-[#4A00FF] text-white rounded-lg font-bold text-[14px] hover:bg-[#3B00CC] transition-colors">Close</button>
+            </form>
+        </div>
+    `;
+
+    modal.showModal();
+}
+
+fetchIssues();
