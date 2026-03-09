@@ -12,7 +12,87 @@
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
 </head>
-<body>
-    
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+<div class="card bg-white w-[420px] shadow-lg p-8 rounded-xl">
+<div class="flex justify-center mb-6">
+<img
+src="assets/github-logo.png"
+class="w-16"
+/>
+</div>
+<div class="text-center mb-6">
+<h1 class="text-[24px] font-semibold text-[#1F2937]">
+GitHub Issues Tracker
+</h1>
+<p class="text-[16px] font-normal text-[#64748B] mt-1">
+Sign in to manage your issues
+</p>
+</div>
+<form id="login-form" class="space-y-4">
+<div>
+<label class="text-[16px] font-bold text-[#3D3746]">
+Username
+</label>
+<input
+id="username"
+type="text"
+placeholder="Enter Username"
+class="input input-custom w-full mt-1"
+/>
+<p class="text-[14px] text-[#4A00FF] mt-1">
+Default: admin
+</p>
+</div>
+<div>
+<label class="text-[16px] font-bold text-[#3D3746]">
+Password
+</label>
+<input
+id="password"
+type="password"
+placeholder="Enter Password"
+class="input input-custom w-full mt-1"
+/>
+<p class="text-[14px] text-[#4A00FF] mt-1">
+Default: admin123
+</p>
+</div>
+<button class="btn btn-login w-full mt-2">
+Sign In
+</button>
+</form>
+<div class="flex items-center gap-3 my-6">
+
+<div class="flex-1 divider-line"></div>
+
+<span class="text-[16px] text-[#1F2937]">
+OR
+</span>
+
+<div class="flex-1 divider-line"></div>
+
+</div>
+
+<div class="text-center">
+
+<p class="text-[14px] text-[#64748B] mb-3">
+Demo Credentials:
+</p>
+
+<div class="border border-[#E4E4E7] rounded-lg p-4">
+
+<p class="text-[16px] text-[#1F2937]">
+<span class="font-semibold">Username:</span>
+admin
+</p>
+
+<p class="text-[16px] text-[#1F2937]">
+<span class="font-semibold">Password:</span>
+admin123
+</p>
+</div>
+</div>
+</div>
+<script src="login-form.js"></script>
 </body>
 </html>
