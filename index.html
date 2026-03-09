@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Issues Tracker - Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist-font@latest/style.css">
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+  <header class="bg-white border-b border-[#E4E4E7] sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+        
+        <div class="flex items-center gap-3">
+            <img src="assets/github-logo.png" alt="Logo" class="w-8">
+            <h2 class="text-[20px] font-bold text-[#1F2937]">GitHub Issues Tracker</h2>
+        </div>
+        
+        <div class="flex items-center gap-10">
+            <div class="relative flex items-center">
+                <div class="absolute left-3 w-5 h-5">
+                    <img src="assets/MagnifyingGlass.png" class="w-5 h-5">
+                    </div>
+                <input 
+                    id="search-input" 
+                    type="text" 
+                    placeholder="Search issues..." 
+                    class="input bg-transparent border-[#E4E4E7] focus:border-[#4A00FF] focus:outline-none w-[300px] pl-10 text-[14px]" 
+                />
+            </div>
+
+            <button class="btn bg-[#4A00FF] hover:bg-[#3A00CC] text-white border-none flex items-center gap-2 px-6">
+                <div class="w-4 h-4">
+                    <img src="assets/Vector.png" class="w-4 h-4">
+                    </div>
+                <span class="text-[14px] font-semibold">New Issue</span>
+            </button>
+        </div>
+
+    </div>
+</header>
+    
+</body>
+</html>
