@@ -86,3 +86,22 @@ function displayIssues(issues) {
         issuesGrid.appendChild(card);
     });
 }
+
+
+function filterIssues(status) {
+    const tabs = ['all-tab', 'open-tab', 'closed-tab'];
+    tabs.forEach(tabId => {
+        const tab = document.getElementById(tabId);
+        if (tab) tab.classList.remove('tab-active-custom');
+    });
+    
+    const activeTab = document.getElementById(`${status}-tab`);
+    if (activeTab) activeTab.classList.add('tab-active-custom');
+
+    if (status === 'all') {
+        displayIssues(allIssuesData);
+    } else {
+        const filtered = allIssuesData.filter(i => (i.status || '').toLowerCase() === status);
+        displayIssues(filtered);
+    }
+}
