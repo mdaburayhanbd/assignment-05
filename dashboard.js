@@ -105,3 +105,23 @@ function filterIssues(status) {
         displayIssues(filtered);
     }
 }
+
+document.getElementById('search-input').addEventListener('input', async (e) => {
+    const searchText = e.target.value.trim().toLowerCase();
+    
+
+    if (searchText.length >= 1) { 
+        try {
+            const response = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`);
+            const data = await response.json();
+            
+            const searchResult = Array.isArray(data) ? data : (data.data || []);
+            displayIssues(searchResult);
+            
+        } catch (error) {
+            console.error("Search Error:", error);
+        }
+    } else {
+        displayIssues(allIssuesData);
+    }
+});
